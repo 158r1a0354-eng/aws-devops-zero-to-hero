@@ -6,12 +6,8 @@ files:
     destination: /home/ubuntu/aws-devops-zero-to-hero
 
 hooks:
-  ApplicationStop:
-    - location: stop_container.sh
+  BeforeInstall:
+    - location: scripts/stop_container.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
 
-  ApplicationStart:
-    - location: start_container.sh
-      timeout: 300
-      runas: ubuntu
