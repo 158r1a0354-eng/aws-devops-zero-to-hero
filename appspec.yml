@@ -1,13 +1,5 @@
-version: 0.0
-os: linux
+#!/bin/bash
+set -e
 
-hooks:
-  ApplicationStop:
-    - location: stop_container.sh
-      timeout: 300
-      runas: root
-
-  ApplicationStart:
-    - location: start_container.sh
-      timeout: 300
-      runas: root
+docker stop flask-app || true
+docker rm flask-app || true
